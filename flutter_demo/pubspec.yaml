@@ -1,0 +1,115 @@
+name: flutter_demo
+description: A new Flutter application.
+
+# The following defines the version and build number for your application.
+# A version number is three numbers separated by dots, like 1.2.43
+# followed by an optional build number separated by a +.
+# Both the version and the builder number may be overridden in flutter
+# build by specifying --build-name and --build-number, respectively.
+# Read more about versioning at semver.org.
+version: 1.0.0+1
+
+environment:
+  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # The following adds the Cupertino Icons font to your application.
+  # Use with the CupertinoIcons class for iOS style icons.
+  cupertino_icons: ^0.1.2
+  english_words: ^3.1.0
+  dio: ^1.0.13
+  webview_flutter: ^0.1.2
+  flutter_webview_plugin: ^0.3.0+2
+  chewie: ^0.8.0
+  flutter_swiper: ^1.1.4
+  image_picker: ^0.4.12+1
+  qrcode_reader: ^0.4.4
+  pointycastle: ^1.0.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+
+# For information on the generic Dart part of this file, see the
+# following page: https://www.dartlang.org/tools/pub/pubspec
+
+# The following section is specific to Flutter.
+flutter:
+
+  # The following line ensures that the Material Icons font is
+  # included with your application, so that you can use the icons in
+  # the material Icons class.
+  uses-material-design: true
+
+
+  # To add assets to your application, add an assets section, like this:
+  assets:
+    - images/icon_logo.png
+    - images/icon_function_search.png
+    - images/icon_main_tab_news_normal.png
+    - images/icon_main_tab_news_selected.png
+    - images/icon_main_tab_micro_normal.png
+    - images/icon_main_tab_micro_select.png
+    - images/icon_history_time.png
+    - images/icon_main_tab_person_normal.png
+    - images/icon_main_tab_person_selected.png
+    - images/fiction_header_icon.png
+    - images/fiction_1.png
+    - images/fiction_2.png
+    - images/fiction_3.png
+    - images/fiction_4.png
+    - images/fiction_author.png
+    - images/icon_replace.png
+    - images/icon_share.png
+    - images/icon_back.png
+    - images/icon_right.png
+    - images/icon_add_comment.png
+    - images/icon_back_pressed.png
+    - images/icon_main_tab_fiction_normal.png
+    - images/icon_main_tab_fiction_selected.png
+    - images/setting.png
+    - images/personal_heart_bg.png
+    - images/personal_ava_default.png
+    - images/mine_apprentice_icon.png
+    - images/mine_cash_icon.png
+    - images/mine_message_icon.png
+    - images/mine_withdraw_icon.png
+    - images/mine_code_icon.png
+    - images/mine_guess_icon.png
+    - images/mine_read_icon.png
+    - images/mine_riddle_icon.png
+    - images/mine_wallet_icon.png
+    - images/icon_coin.png
+    - images/icon_coin.png
+    - images/icon_coin_bg.png
+  #  - images/a_dot_ham.jpeg
+
+  # An image asset can refer to one or more resolution-specific "variants", see
+  # https://flutter.io/assets-and-images/#resolution-aware.
+
+  # For details regarding adding assets from package dependencies, see
+  # https://flutter.io/assets-and-images/#from-packages
+
+  # To add custom fonts to your application, add a fonts section here,
+  # in this "flutter" section. Each entry in this list should have a
+  # "family" key with the font family name, and a "fonts" key with a
+  # list giving the asset and other descriptors for the font. For
+  # example:
+  # fonts:
+  #   - family: Schyler
+  #     fonts:
+  #       - asset: fonts/Schyler-Regular.ttf
+  #       - asset: fonts/Schyler-Italic.ttf
+  #         style: italic
+  #   - family: Trajan Pro
+  #     fonts:
+  #       - asset: fonts/TrajanPro.ttf
+  #       - asset: fonts/TrajanPro_Bold.ttf
+  #         weight: 700
+  #
+  # For details regarding fonts from package dependencies,
+  # see https://flutter.io/custom-fonts/#from-packages
