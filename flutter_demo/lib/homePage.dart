@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/SearchPage.dart';
-import 'package:flutter_demo/bean/HuanTest.dart';
 import 'controller/HttpController.dart';
 import 'bean/ChannelResponse.dart';
 import 'channelView.dart';
