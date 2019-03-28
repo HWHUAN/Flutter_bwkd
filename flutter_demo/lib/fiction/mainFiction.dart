@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/ImagePickerPage.dart';
 import 'package:flutter_demo/ScannerPage.dart';
+import 'package:flutter_demo/bean/HuanTest.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_demo/controller/HttpController.dart';
 import 'package:flutter_demo/bean/BannerInfoResponse.dart';

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_demo/SearchPage.dart';
+import 'package:flutter_demo/bean/HuanTest.dart';
 import 'controller/HttpController.dart';
 import 'bean/ChannelResponse.dart';
 import 'channelView.dart';
@@ -54,121 +55,116 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   Widget layout(BuildContext context){
 
     if(isLoadChannel){
-      return Scaffold(
-        appBar: AppBar(
-          leading: Container(
-            padding: EdgeInsets.only(left: 5.0),
-            child: Image.asset('images/icon_logo.png',width: 63.0,height: 15.0,),
+      return Theme(
+          data: ThemeData(
+              primaryColor: Colors.white
           ),
-          title:DecoratedBox(
-            decoration: BoxDecoration(
-                color: Color.fromARGB(150, 245, 245, 245),
-                borderRadius: BorderRadius.circular(20.0),
-                border: Border.all(color: Color(0xFFC90E),width: 1.0)
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
+          child: Scaffold(
+            appBar: AppBar(
+              leading: Container(
+                padding: EdgeInsets.only(left: 5.0),
+                child: Image.asset('images/icon_logo.png',width: 63.0,height: 15.0,),
+              ),
+              title:DecoratedBox(
+                decoration: BoxDecoration(
+                    color: Color.fromARGB(150, 245, 245, 245),
+                    borderRadius: BorderRadius.circular(20.0),
+                    border: Border.all(color: Color(0xFFC90E),width: 1.0)
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
-                  child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(left: 10.0),
+                      child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
+                      child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
-          ),
-        ),
-        body: Center(
-            child: CircularProgressIndicator(
-              backgroundColor: Colors.blue,
-              strokeWidth: 4,
-            )
-        ),
+            body: Center(
+                child: CircularProgressIndicator(
+                  backgroundColor: Colors.blue,
+                  strokeWidth: 4,
+                )
+            ),
+          )
       );
     }
 
-    return DefaultTabController(
-      length: channels.length,
-      child: Scaffold(
-        appBar: AppBar(
-          leading: Container(
-            padding: EdgeInsets.only(left: 5.0),
-            child: Image.asset('images/icon_logo.png',width: 63.0,height: 15.0,),
-          ),
-          title: DecoratedBox(
-            decoration: BoxDecoration(
-              color: Color.fromARGB(150, 245, 245, 245),
-              borderRadius: BorderRadius.circular(20.0),
+    return Theme(
+        data: ThemeData(
+            primaryColor: Colors.white
+        ),
+        child: DefaultTabController(
+          length: channels.length,
+          child: Scaffold(
+            appBar: AppBar(
+              leading: Container(
+                padding: EdgeInsets.only(left: 5.0),
+                child: Image.asset('images/icon_logo.png',width: 63.0,height: 15.0,),
+              ),
+              title: DecoratedBox(
+                decoration: BoxDecoration(
+                  color: Color.fromARGB(150, 245, 245, 245),
+                  borderRadius: BorderRadius.circular(20.0),
 //                border: Border.all(color: Color(0xFFFFC90E),width: 1.0)
-            ),
-            /* child: Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: EdgeInsets.only(left: 10.0),
-                  child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
                 ),
-                Padding(
-                  padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
-                  child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                child: InkWell(
+                  onTap: (){
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(builder: (context){
+                           return SearchPage();
+                        })
+                    );
+
+                  },
+
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: <Widget>[
+                      Padding(
+                        padding: EdgeInsets.only(left: 10.0),
+                        child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
+                      ),
+                      Padding(
+                        padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
+                        child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                      ),
+                    ],
+                  ),
                 ),
-              ],
-            ),*/
-            child: InkWell(
-              onTap: (){
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context){
-                      return SearchPage();
-                    })
-                );
-
-              },
-
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(left: 10.0),
-                    child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
-                    child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
-                  ),
-                ],
+              ),
+              bottom: TabBar(
+                isScrollable: true,
+                tabs: channels.map((Channel channel){
+                  return Tab(
+                    text: channel.name,
+                  );
+                }).toList(),
               ),
             ),
-          ),
-          bottom: TabBar(
-            isScrollable: true,
-            tabs: channels.map((Channel channel){
-              return Tab(
-                text: channel.name,
-              );
-            }).toList(),
-          ),
-        ),
-        body: TabBarView(
-          children: channels.map((Channel channel){
-            return Container(
-              /*child: RefreshIndicator(
+            body: TabBarView(
+              children: channels.map((Channel channel){
+                return Container(
+                  /*child: RefreshIndicator(
                     child: ListView.builder(itemCount:mNewsList.length,itemBuilder: itemView,controller: _scrollController, ),
                     onRefresh: _onRefresh),*/
-              child: _buildChannelTab(context,channel),
-            );
-          }).toList(),
-        ),
-      ),
+                  child: _buildChannelTab(context,channel),
+                );
+              }).toList(),
+            ),
+          ),
+        )
     );
   }
 
