@@ -45,6 +45,7 @@ https://pan.baidu.com/s/1Jb-1jwzIGa5e4fVQJVrwaA
 新增了搜索页面，可以保存搜索历史和获取当前热门搜索
 
 增加的插件有：
+
 shared_preferences: ^0.5.1+2
 
 synchronized: ^2.1.0
