@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:english_words/english_words.dart';
+import 'package:flutter_demo/utils/SpUtil.dart';
 import 'homePage.dart';
 import 'PersonalPage.dart';
 import 'fiction/mainFiction.dart';
@@ -79,6 +80,13 @@ class MainPageState extends State<MainPage>{
   void initState() {
     // TODO: implement initState
     super.initState();
+    _initAsync();
+  }
+
+
+  //初始化sp
+  void _initAsync() async {
+    await SpUtil.getInstance();
   }
 
   void _initData(){

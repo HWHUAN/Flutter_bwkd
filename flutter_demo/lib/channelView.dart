@@ -6,8 +6,9 @@ import 'news_detail_page.dart';
 import 'videoListPage.dart';
 
 class NewsListView extends StatefulWidget{
-  final Channel channel;
-  NewsListView({this.channel});
+  final String mChannelCode;
+  final String mSearchText;
+  NewsListView({this.mChannelCode,this.mSearchText});
 
   @override
   State<StatefulWidget> createState() {
@@ -31,17 +32,16 @@ class NewsListViewState extends State<NewsListView> with AutomaticKeepAliveClien
   void initState() {
     // TODO: implement initState
     super.initState();
-    print(widget.channel.name+"_initState");
-    assert(widget.channel!=null);
+    assert(widget.mChannelCode!=null);
     mHttpController=new HttpController();
-    getData(widget.channel.code.toString(),2,0);
+    getData(widget.mChannelCode,widget.mSearchText,2,0);
     _scrollController.addListener((){
       if(_scrollController.position.pixels == _scrollController.position.maxScrollExtent){
         if(!isLoadMore && mNewsList.length>1){
           setState(() {
             isLoadMore=true;
           });
-          getData(widget.channel.code.toString(),mNewsResData.data.currentpage,mNewsResData.data.currentindex);
+          getData(widget.mChannelCode,widget.mSearchText,mNewsResData.data.currentpage,mNewsResData.data.currentindex);
         }
 
       }
@@ -65,7 +65,7 @@ class NewsListViewState extends State<NewsListView> with AutomaticKeepAliveClien
       }else{
         return Container(
           child: RefreshIndicator(
-                    child: ListView.builder(itemCount:mNewsList.length,itemBuilder: itemView,controller: _scrollController, ),
+                    child: ListView.builder(itemCount:mNewsList.length,itemBuilder: itemView,controller: _scrollController,padding: EdgeInsets.only(top: 0.0), ),
                     onRefresh: _onRefresh),
         );
       }
@@ -74,13 +74,14 @@ class NewsListViewState extends State<NewsListView> with AutomaticKeepAliveClien
 
   Future<Null> _onRefresh() async{
     if(mNewsResData!=null){
-      await getData(widget.channel.code.toString(),mNewsResData.data.currentpage,mNewsResData.data.currentindex);
+      await getData(widget.mChannelCode,widget.mSearchText,mNewsResData.data.currentpage,mNewsResData.data.currentindex);
     }
   }
 
-  void getData(String tag,int page,int currentIndex) async{
+  void getData(String tag,String searchText,int page,int currentIndex) async{
     Map<String,String> dataMap = new Map();
     dataMap["tag"]=tag;
+    dataMap["search"]=searchText;
     dataMap["page"]=page.toString();
     dataMap["currentindex"]=currentIndex.toString();
     await mHttpController.getNewsList("https://app.tenyou0574.com/App/Info/InfoList",(data){

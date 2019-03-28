@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/SearchPage.dart';
 import 'controller/HttpController.dart';
 import 'bean/ChannelResponse.dart';
 import 'channelView.dart';
@@ -22,7 +23,7 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   Widget build(BuildContext context) {
     // TODO: implement build
     return layout(context);
-   /* return MaterialApp(
+    /* return MaterialApp(
       routes: <String, WidgetBuilder>{
         '/': (BuildContext context) => layout(context),
       },
@@ -105,11 +106,7 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
               borderRadius: BorderRadius.circular(20.0),
 //                border: Border.all(color: Color(0xFFFFC90E),width: 1.0)
             ),
-            /*child: Padding(
-                  padding: EdgeInsets.fromLTRB(10.0, 5.0, 180.0, 5.0),
-                  child: Text('新闻',style: TextStyle(fontSize: 14.0,color: Colors.black),),
-              ),*/
-            child: Row(
+            /* child: Row(
               mainAxisSize: MainAxisSize.min,
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -123,6 +120,33 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
                   child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
                 ),
               ],
+            ),*/
+            child: InkWell(
+              onTap: (){
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context){
+                      return SearchPage();
+                    })
+                );
+
+              },
+
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Padding(
+                    padding: EdgeInsets.only(left: 10.0),
+                    child: Image.asset('images/icon_function_search.png',width: 14.0,height: 14.0,),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(10.0, 5.0, 80.0, 5.0),
+                    child: Text('搜索你感兴趣的内容',style: TextStyle(fontSize: 14.0,color: Colors.black),),
+                  ),
+                ],
+              ),
             ),
           ),
           bottom: TabBar(
@@ -149,7 +173,7 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
   }
 
   Widget _buildChannelTab(BuildContext context,Channel channel){
-    return NewsListView(channel:channel);
+    return NewsListView(mChannelCode: channel.code.toString(),mSearchText: "",);
   }
 
   @override

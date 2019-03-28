@@ -28,6 +28,8 @@ dependencies:
   image_picker: ^0.4.12+1
   qrcode_reader: ^0.4.4
   pointycastle: ^1.0.0
+  shared_preferences: ^0.5.1+2
+  synchronized: ^2.1.0
 
 dev_dependencies:
   flutter_test:

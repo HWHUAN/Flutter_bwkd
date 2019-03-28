@@ -1,4 +1,5 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_demo/bean/HotSearchResponse.dart';
 import 'dart:async';
 import 'package:flutter_demo/bean/NewsResData.dart';
 import 'package:flutter_demo/bean/ChannelResponse.dart';
@@ -108,5 +109,13 @@ class HttpController{
     return fictionDetailResponse;
   }
 
+  //获取所搜热词
+  Future<HotSearchResponse> getHotSearchKeyWord () async{
+    Response response=await dio.get("https://app.tenyou0574.com/App/Info/GetHotSearchKeyWord");
+    HotSearchResponse hotSearchResponse=new HotSearchResponse.fromJson(response.data);
+    /*  HotSearchBean hotSearchBean=HotSearchBean.fromParams(code: -1,name: "热门搜索");
+    hotSearchResponse.data.insert(0, hotSearchBean);*/
+    return hotSearchResponse;
+  }
 
 }
