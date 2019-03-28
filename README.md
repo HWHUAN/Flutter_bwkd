@@ -46,6 +46,7 @@ https://pan.baidu.com/s/1Jb-1jwzIGa5e4fVQJVrwaA
 
 增加的插件有：
 shared_preferences: ^0.5.1+2
+
 synchronized: ^2.1.0
 
 ![image](https://github.com/HWHUAN/Flutter_bwkd/blob/master/images/1553762664.jpg)
