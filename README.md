@@ -48,6 +48,9 @@ https://pan.baidu.com/s/1Jb-1jwzIGa5e4fVQJVrwaA
 shared_preferences: ^0.5.1+2
 synchronized: ^2.1.0
 
+![image](https://github.com/HWHUAN/Flutter_bwkd/blob/master/images/1553762664.jpg)
+![image](https://github.com/HWHUAN/Flutter_bwkd/blob/master/images/1553762638.jpg)
+
 说明：
 
 本项目只做的百万看点的一些主要界面，鉴于百万看点api对用户信息的加密做得太好，还需要一点时间去研究，所以登录验证的相关信息就没做了。
