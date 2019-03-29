@@ -31,7 +31,8 @@ flutter_swiper: ^1.1.4
 pointycastle: ^1.0.0 
 
 APK下载：
-https://pan.baidu.com/s/1Jb-1jwzIGa5e4fVQJVrwaA
+链接：https://pan.baidu.com/s/1OZQRT29eZWxbFmXl3ce50Q 
+提取码：2osd 
 
 心得体会：
 
