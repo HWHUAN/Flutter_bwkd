@@ -84,11 +84,17 @@ class SearchViewState extends State<SearchView>{
             contentPadding: EdgeInsets.fromLTRB(0, 10, 0, 0),
             filled: true,
             fillColor: Color.fromARGB(150, 235, 235, 235),
-            border: OutlineInputBorder(
+            enabledBorder: OutlineInputBorder(     //可用状态下的边框
               borderRadius: BorderRadius.circular(20.0),
               borderSide: BorderSide(
-                color: Color(0xFFCCCCCC),
+                color: Color(0xFFCCCCCC)
               )
+            ),
+            focusedBorder: OutlineInputBorder(     //可用状态获取焦点下的边框
+                borderRadius: BorderRadius.circular(20.0),
+                borderSide: BorderSide(
+                    color: Color(0xFFCCCCCC)
+                )
             ),
 
           ),

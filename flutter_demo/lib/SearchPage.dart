@@ -68,7 +68,7 @@ class SearchPageSate extends State<SearchPage>{
                 left: 0.0,
                 child: new Container(
                   color: Color(0xFFFFFFFF),
-                  height: 45.0,
+                  height: 40.0,
                   width: MediaQuery.of(context).size.width,
                   padding: EdgeInsets.only(left: 12.0,right: 12.0),
                   child: Row(
@@ -106,12 +106,13 @@ class SearchPageSate extends State<SearchPage>{
                 ),
               ),
               Positioned(
-                  top: MediaQuery.of(context).padding.top + 45.0,
+                  top: MediaQuery.of(context).padding.top + 40.0,
                   left: 0.0,
-                  height: MediaQuery.of(context).size.height-45.0-MediaQuery.of(context).padding.top,
+                  height: MediaQuery.of(context).size.height-40.0-MediaQuery.of(context).padding.top,
                   width: MediaQuery.of(context).size.width,
                   child: Container(
                     color: Color(0xFFFFFFFF),
+                    padding: EdgeInsets.only(top: 5.0),
                     child: layout(context)
                   )
               )
@@ -229,7 +230,6 @@ class SearchPageSate extends State<SearchPage>{
         Container(
           height: 40.0,
           color: Color(0xFFF5F5F5),
-          margin: EdgeInsets.only(top: 5.0),
           padding: EdgeInsets.only(left: 12.0,right: 12.0),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
