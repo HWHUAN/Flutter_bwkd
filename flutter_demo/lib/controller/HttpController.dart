@@ -63,6 +63,7 @@ class HttpController{
       NewsDetailResponse newsDetailResponse=new NewsDetailResponse.fromJson(response.data);
       if(newsDetailResponse.result==200){
         callBack(newsDetailResponse.data);
+        print("NewsDetailResponse="+newsDetailResponse.toString());
       }else{
         errorCallBack(newsDetailResponse.msg);
       }

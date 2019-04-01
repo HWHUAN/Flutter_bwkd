@@ -145,6 +145,11 @@ class HomePageState extends State<HomePage> with AutomaticKeepAliveClientMixin{
               ),
               bottom: TabBar(
                 isScrollable: true,
+                indicatorColor: Color(0xFFFFB40C),
+                labelColor: Colors.black,
+                labelStyle: TextStyle(fontSize: 16.0,fontWeight: FontWeight.bold),
+                unselectedLabelColor: Color(0xFF666666),
+                unselectedLabelStyle: TextStyle(fontSize: 14.0),
                 tabs: channels.map((Channel channel){
                   return Tab(
                     text: channel.name,
