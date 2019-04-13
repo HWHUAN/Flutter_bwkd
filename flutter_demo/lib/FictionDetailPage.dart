@@ -92,7 +92,7 @@ class FictionDetailPageState extends State<FictionDetailPage>{
                                 );
                               case ConnectionState.done:
                                 if (snapshot.hasError) return Text('Error: ${snapshot.error}');
-                                return getFictionHomeContent(snapshot.data);
+                                return getFictionHomeContent(snapshot.data,context);
                               default:
                                 return null;
                             }
@@ -121,8 +121,16 @@ class FictionDetailPageState extends State<FictionDetailPage>{
                           flex: 1,
                           child: Container(
                             color: Color(0xFFFFB30A),
-                            child: Center(
+                            /*child: Center(
                               child: Text('开始阅读',style: TextStyle(fontSize: 18.0,color: Colors.white),),
+                            ),*/
+                            child: InkWell(
+                              onTap: (){
+
+                              },
+                              child: Center(
+                                child: Text('开始阅读',style: TextStyle(fontSize: 18.0,color: Colors.white),),
+                              ),
                             ),
                           )
                       ),
@@ -135,13 +143,102 @@ class FictionDetailPageState extends State<FictionDetailPage>{
     );
   }
 
-  Widget getFictionHomeContent(FictionDetailResponse fictionDetailResponse){
+  void editComment(BuildContext context){
+    showModalBottomSheet(
+        context: context,
+        builder: (BuildContext context){
+          return Container(
+            color: Color(0xFFF5F5F5),
+            padding: EdgeInsets.only(bottom: MediaQuery.of(context).viewInsets.bottom),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Container(
+                  padding: EdgeInsets.only(left: 18.0,top: 18.0,right: 18.0,bottom: 12.0),
+                  child: TextField(
+                    autofocus: true,
+                    keyboardType: TextInputType.text,
+                    maxLines: 1,
+                    decoration: InputDecoration(
+                        hintText: "请文明发言，遵守评论规则",
+                        hintStyle: TextStyle(
+                          color: Color(0xFF999999),
+                          fontSize: 16.0,
+                        ),
+                        contentPadding: EdgeInsets.all(10.0),
+                        filled: true,
+                        fillColor: Colors.white,
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            borderSide: BorderSide(
+                                width: 0.0,
+                                color: Colors.white
+                            )
+                        ),
+                        focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                            borderSide: BorderSide(
+                                width: 0.0,
+                                color: Colors.white
+                            )
+                        )
+                    ),
+                  ),
+                ),
+                Container(
+                  padding: EdgeInsets.only(left: 18.0,right: 18.0,bottom: 18.0),
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                          child: Icon(
+                            Icons.sentiment_satisfied,
+                          )
+                      ),
+                      Container(
+                          margin: EdgeInsets.only(left: 20.0),
+                          child: Icon(
+                            Icons.copyright,
+                          )
+                      ),
+
+                      Expanded(
+                        flex: 1,
+                        child:Container() ,
+                      ),
+
+                      Container(
+                        width: 65.0,
+                        height: 30.0,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(5.0),
+                            color: Color(0xFFFFB30A)
+                        ),
+                        child: Center(
+                          child: Text("发送",style: TextStyle(
+                              fontSize: 14.0,color: Colors.white
+                          ),),
+                        ),
+                      )
+
+                    ],
+                  ),
+                )
+
+              ],
+            ),
+          );
+        }
+    );
+  }
+
+  Widget getFictionHomeContent(FictionDetailResponse fictionDetailResponse,BuildContext context){
     return Column(
       mainAxisAlignment: MainAxisAlignment.start,
       children: <Widget>[
         getCoverWidget(fictionDetailResponse.data),
         getDescView(fictionDetailResponse.data),
-        getCommentView(fictionDetailResponse.data),
+        getCommentView(fictionDetailResponse.data,context),
         getHotPushWidgets(fictionDetailResponse.data.pushBookList),
       ],
     );
@@ -205,7 +302,7 @@ class FictionDetailPageState extends State<FictionDetailPage>{
     );
   }
 
-  Widget getCommentView(FictionDetailBean fictionDetailBean){
+  Widget getCommentView(FictionDetailBean fictionDetailBean,BuildContext context){
     if(fictionDetailBean.lastComment!=null){
       return Column(
         children: <Widget>[
@@ -221,7 +318,12 @@ class FictionDetailPageState extends State<FictionDetailPage>{
                 ),
                 Container(
                   margin: EdgeInsets.only(left: 153.0),
-                  child: Image.asset('images/icon_add_comment.png',width: 87.0,height: 32.0,),
+                  child: InkWell(
+                    onTap: (){
+                      editComment(context);
+                    },
+                    child: Image.asset('images/icon_add_comment.png',width: 87.0,height: 32.0,),
+                  )
                 )
               ],
             ),
@@ -299,7 +401,12 @@ class FictionDetailPageState extends State<FictionDetailPage>{
             ),
             Container(
               margin: EdgeInsets.only(bottom: 40.0),
-              child: Image.asset('images/icon_add_comment.png',width: 87.0,height: 32.0,),
+                child: InkWell(
+                  onTap: (){
+                    editComment(context);
+                  },
+                  child: Image.asset('images/icon_add_comment.png',width: 87.0,height: 32.0,),
+                )
             ),
           ],
         ),

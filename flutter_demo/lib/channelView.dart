@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_demo/NewsDetailPageView.dart';
+import 'package:flutter_demo/view/NewDetailWebview.dart';
 import 'bean/ChannelResponse.dart';
 import 'bean/NewsResData.dart';
 import 'controller/HttpController.dart';
@@ -135,6 +137,7 @@ class NewsListViewState extends State<NewsListView> with AutomaticKeepAliveClien
               MaterialPageRoute(builder: (context){
                 if(news.infoType=="Article"){
                   return NewsDetailPage(mNews:mNewsList[index]);
+//                  return NewsDetailPageView(mNews:mNewsList[index]);
                 }else{
                   return VideoListPage(mNews:mNewsList[index]);
                 }
@@ -180,6 +183,7 @@ class NewsListViewState extends State<NewsListView> with AutomaticKeepAliveClien
               MaterialPageRoute(builder: (context){
                 if(news.infoType=="Article"){
                   return NewsDetailPage(mNews:mNewsList[index]);
+//                  return NewsDetailPageView(mNews:mNewsList[index]);
                 }else{
                   return VideoListPage(mNews:mNewsList[index]);
                 }

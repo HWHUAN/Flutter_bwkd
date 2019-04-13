@@ -7,8 +7,7 @@ import 'package:flutter_webview_plugin/flutter_webview_plugin.dart';
 
 class NewsDetailPage extends StatelessWidget{
 
-  final Completer<WebViewController> _controller =
-  Completer<WebViewController>();
+  final Completer<WebViewController> _controller = Completer<WebViewController>();
 
   NewsDetailPage({this.mNews});
   final News mNews;
